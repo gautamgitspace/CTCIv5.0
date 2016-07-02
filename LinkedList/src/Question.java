@@ -52,7 +52,8 @@ public class Question
         }
 
 		/* Merge before list and after list */
-        if (beforeStart == null) {
+        if (beforeStart == null)
+        {
             return afterStart;
         }
 
@@ -63,17 +64,19 @@ public class Question
     public static void main(String[] args)
     {
 		/* Create linked list */
-        int[] vals = {1, 3, 7, 5, 2, 9, 4};
-        LinkedListNode head = new LinkedListNode(vals[0], null, null);
+        int[] values = {1, 3, 7, 5, 2, 9, 4};
+        System.out.println("GENERATING HEAD. . .");
+        LinkedListNode head = new LinkedListNode(values[0], null, null);
         LinkedListNode current = head;
         System.out.println("Head is: " + head.data);
-        System.out.println("Current is: " + current.data);
-        for (int i = 1; i < vals.length; i++)
+
+        System.out.println("GENERATING LIST. . .");
+        for (int i = 1; i < values.length; i++)
         {
-            current = new LinkedListNode(vals[i], null, current);
+            current = new LinkedListNode(values[i], null, current);
             System.out.println("current updated to: " + current.data);
         }
-        System.out.println("GENERATING LIST. . .");
+
         System.out.println(head.printForward());
         System.out.println("PARTITIONING LIST. . .");
 
