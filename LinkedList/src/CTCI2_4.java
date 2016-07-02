@@ -1,8 +1,10 @@
 /**
  * Created by Gautam on 6/3/16.
+ * CTCI 2.4 - pivot element sort
+ * APPROACH #1 - Before and After
  */
 
-public class Question
+public class CTCI2_4
 {
     public static LinkedListNode partition(LinkedListNode node, int x)
     {
@@ -63,7 +65,6 @@ public class Question
 
     public static void main(String[] args)
     {
-		/* Create linked list */
         int[] values = {1, 3, 7, 5, 2, 9, 4};
         System.out.println("GENERATING HEAD. . .");
         LinkedListNode head = new LinkedListNode(values[0], null, null);
@@ -80,10 +81,8 @@ public class Question
         System.out.println(head.printForward());
         System.out.println("PARTITIONING LIST. . .");
 
-		/* Partition */
-        LinkedListNode h = partition(head,3);
+        LinkedListNode h = partition(head,7);
 
-		/* Print Result */
         System.out.println("PARTITIONING RESULT----->");
         System.out.println(h.printForward());
     }
