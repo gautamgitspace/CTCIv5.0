@@ -301,7 +301,7 @@ class linkedList
     	
     	Node ptr1=start;
     	Node ptr2=start;
-    	
+
     	for(int i=0;i<k;i++)
     	{
     		if(ptr2==null)
@@ -315,6 +315,8 @@ class linkedList
     	{
     		ptr1=ptr1.getLink();
     		ptr2=ptr2.getLink();
+            if(ptr2!=null)
+            System.out.println("ptr2 stopped at: " + ptr2.getData());
     	}
     	return ptr1.getData();
     }

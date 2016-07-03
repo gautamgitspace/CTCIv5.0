@@ -1,5 +1,6 @@
 /**
  * Created by Gautam on 6/3/16.
+ * CTCI 2.5a - Add contents of two lists and return the sum in a resultant list. The digits are stored in the reverse order.
  */
 public class CTCI2_5
 {
@@ -74,7 +75,7 @@ public class CTCI2_5
             return resultantHead;
         }
 
-        void printList(Node head)
+        private void printList(Node head)
         {
             while (head != null)
             {
@@ -94,18 +95,18 @@ public class CTCI2_5
 
             //create list head1
             list.head1 = new Node(1);
-            list.head1.next = new Node(3);
-            list.head1.next.next = new Node(5);
-            list.head1.next.next.next = new Node(7);
-            list.head1.next.next.next.next = new Node(9);
+            list.head1.next = new Node(2);
+            list.head1.next.next = new Node(3);
+            list.head1.next.next.next = new Node(4);
+            //list.head1.next.next.next.next = new Node(9);
             System.out.print("First List is ");
             list.printList(head1);
 
             //create list head2
-            list.head2 = new Node(2);
-            list.head2.next = new Node(4);
-            list.head2.next.next = new Node(6);
-            list.head2.next.next.next = new Node(8);
+            list.head2 = new Node(5);
+            list.head2.next = new Node(6);
+            list.head2.next.next = new Node(7);
+            //list.head2.next.next.next = new Node(8);
             System.out.print("Second List is ");
             list.printList(head2);
 
