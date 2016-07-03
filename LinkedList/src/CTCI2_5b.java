@@ -1,9 +1,15 @@
 
 /**
  * Created by Gautam on 6/12/16.
+ * Add contents of two lists and return the sum in a resultant list. The digits are stored in the same order.
  */
 public class CTCI2_5b
 {
+    private static class PartialSum
+    {
+        public LinkedListNode sum = null;
+        public int carry = 0;
+    }
     static int i=0;
     //Recursive function to calculate the length of the list
     private static int length(LinkedListNode l)
@@ -36,12 +42,12 @@ public class CTCI2_5b
         //add carry to current data
         int val = sum.carry + l1.data + l2.data;
 
-        //insert sum of current digits
+        //insert sum of current digits (args - node sum and value sum)
         LinkedListNode full_result = insertBefore(sum.sum, val % 10);
 
         //return sum(obj) with the sum so far and the carry value
         sum.sum = full_result;
-        sum.carry = val / 10;
+        sum.carry = val / 10; //will be zero OR one as datatype is integer
         return sum;
     }
 
@@ -65,11 +71,13 @@ public class CTCI2_5b
         if (sum.carry == 0)
         {
             //otherwise case
+            System.out.println("otherwise case");
             return sum.sum;
         }
         else
         {
-            //insert at the front of the list case
+            //insert carry at the front of the list case
+            System.out.println("insert carry at the front of the list case case");
             LinkedListNode result = insertBefore(sum.sum, sum.carry);
             return result;
         }
@@ -100,9 +108,12 @@ public class CTCI2_5b
             list.prev = node;
             node.next = list;
         }
+        System.out.println("printing node: " + node.data);
         return node;
+
     }
 
+    //For Fine Output Printing
     public static int linkedListToInt(LinkedListNode node)
     {
         int value = 0;
@@ -117,14 +128,17 @@ public class CTCI2_5b
 
     public static void main(String[] args)
     {
-        LinkedListNode lA1 = new LinkedListNode(3, null, null);
-        LinkedListNode lA2 = new LinkedListNode(1, null, lA1);
-        LinkedListNode lA3 = new LinkedListNode(5, null, lA2);
+        LinkedListNode lA1 = new LinkedListNode(1, null, null);
+        LinkedListNode lA2 = new LinkedListNode(2, null, lA1);
+        LinkedListNode lA3 = new LinkedListNode(3, null, lA2);
+        LinkedListNode lA4 = new LinkedListNode(4, null, lA3);
 
-        LinkedListNode lB1 = new LinkedListNode(5, null, null);
-        LinkedListNode lB2 = new LinkedListNode(9, null, lB1);
-        LinkedListNode lB3 = new LinkedListNode(1, null, lB2);
+        LinkedListNode lB1 = new LinkedListNode(9, null, null);
+        LinkedListNode lB2 = new LinkedListNode(8, null, lB1);
+        LinkedListNode lB3 = new LinkedListNode(6, null, lB2);
+        LinkedListNode lB4 = new LinkedListNode(7, null, lB3);
 
+        //call to addLists
         LinkedListNode list3 = addLists(lA1, lB1);
 
         System.out.println("  " + lA1.printForward());

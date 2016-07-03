@@ -30,9 +30,11 @@ public class LinkedListNode
         }
     }
 
-    public void setPrevious(LinkedListNode p) {
+    public void setPrevious(LinkedListNode p)
+    {
         prev = p;
-        if (p != null && p.next != this) {
+        if (p != null && p.next != this)
+        {
             p.setNext(this);
         }
     }
