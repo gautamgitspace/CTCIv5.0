@@ -5,7 +5,7 @@
 public class CTCI1_1
 {
 
-CTCI1_1()
+private CTCI1_1()
 {
 	System.out.println("Default Constructor");
 }
@@ -23,18 +23,17 @@ else
 	
 }
 
-public boolean check(String str)
+private boolean check(String str)
 {
 	boolean Set[] = new boolean [256];
 	for(int i=0; i<str.length();i++)
 	{
 	int val = str.charAt(i);
-	//System.out.println("value is :" + val);
-	System.out.println("Previous state " + Set[val]);	//boolean array is false by default
+	System.out.println("Previous state for " + val + " " + Set[val]);
 	
 	if(Set[val]) {return false;}
 	Set[val]=true;
-	System.out.println("After state " + Set[val]);
+	System.out.println("After state for " + val + " " +  Set[val]);
 	
 	}
 	return true;
