@@ -19,7 +19,8 @@ public class CTCI2_7
             fast = fast.next.next;
         }
 
-		//When size of list is odd (), skip to the element next to the middle element
+		//BLOCK A
+        // When size of list is odd (), skip to the element next to the middle element
         if (fast != null)
         {
             slow = slow.next;
@@ -36,6 +37,34 @@ public class CTCI2_7
             slow = slow.next;
         }
         return true;
+    }
+
+    public static void main(String[] args)
+    {
+        //change length to a an odd number to see use of BLOCK A
+        int length = 10;
+        //create list
+        LinkedListNode[] nodes = new LinkedListNode[length];
+        for (int i = 0; i < length; i++)
+        {
+            nodes[i] = new LinkedListNode(i >= length / 2 ? length - i - 1 : i, null, null);
+        }
+
+        //set next and previous for each node
+        for (int i = 0; i < length; i++)
+        {
+            if (i < length - 1)
+                nodes[i].setNext(nodes[i + 1]);
+            if (i > 0)
+                nodes[i].setPrevious(nodes[i - 1]);
+        }
+        //uncomment below to alter palindrome property
+        //nodes[length - 2].data = 9;
+
+        LinkedListNode head = nodes[0];
+        System.out.println(head.printForward());
+        //call to function with head as the argument
+        System.out.println(isPalindrome(head));
     }
 
 }
