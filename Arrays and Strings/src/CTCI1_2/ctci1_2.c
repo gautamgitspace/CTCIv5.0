@@ -44,8 +44,6 @@ void reverse(char *str)
     
 }
 
-
-
 int main()
 {
     char str[20] = "abcdfg";
