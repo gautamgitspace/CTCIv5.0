@@ -6,7 +6,7 @@ import java.io.*;
 
 class CTCI1_4
 {
-	public static void replaceJob(char[] input, int length)
+	private static void replaceJob(char[] input, int length)
 	{
 		int spaceCount = 0, index, i;
 		for(i=0; i<length; i++)
@@ -33,7 +33,6 @@ class CTCI1_4
 				index--;
 			}
 		}
-
 	}
 	public static void main(String args[])
 	{
@@ -47,7 +46,5 @@ class CTCI1_4
 		}
 		replaceJob(input,size);
 		System.out.println(input);
-
 	}
-
 }
