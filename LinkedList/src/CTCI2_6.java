@@ -8,6 +8,7 @@ public class CTCI2_6
         LinkedListNode slow = head;
         LinkedListNode fast = head;
 
+        //while fast.next!=null #GoodShit
         while (fast != null && fast.next != null)
         {
             slow = slow.next;
@@ -30,9 +31,7 @@ public class CTCI2_6
             slow = slow.next;
             fast = fast.next;
         }
-
         // At this point slow=fast=starting of the loop
-
         return fast;
     }
 

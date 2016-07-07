@@ -9,19 +9,6 @@ private CTCI1_1()
 {
 	System.out.println("Default Constructor");
 }
-	
-public static void main(String args[])
-{
-	String str = "abca";
-	
-CTCI1_1 obj = new CTCI1_1();
-boolean result=obj.check(str);
-if(result)
-	System.out.println("String has unique characters");
-else
-	System.out.println("String has duplicates");
-	
-}
 
 private boolean check(String str)
 {
@@ -38,6 +25,19 @@ private boolean check(String str)
 	}
 	return true;
 }
+
+	public static void main(String args[])
+	{
+		String str = "abca";
+
+		CTCI1_1 obj = new CTCI1_1();
+		boolean result=obj.check(str);
+		if(result)
+			System.out.println("String has unique characters");
+		else
+			System.out.println("String has duplicates");
+
+	}
 }
 
 
