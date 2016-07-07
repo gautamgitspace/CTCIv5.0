@@ -4,7 +4,7 @@ import java.io.*;
 
 public class CTCI1_3
 {
-		String output;
+		private String output;
 		
 	private String sort(String s)
 	{
@@ -13,8 +13,18 @@ public class CTCI1_3
 		output=new String(stringContent);
 		return output;
 	}
+
+	private boolean isPermutation(String str1, String str2)
+	{
+		boolean var;
+		if (str1.length()!=str2.length())
+			return false;
+		else
+			var=sort(str1).equals(sort(str2));
+		//System.out.println(var);
+		return var;
+	}
 	
-	
-	
+
 }
 
