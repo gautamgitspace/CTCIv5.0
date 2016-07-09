@@ -1,3 +1,5 @@
+#runtime for this is O(p + k^2) where p is the size of the original string and k is the number of character sequences.
+#where in 'hello', there are 4 character sequences. This approach is slow.
 input = raw_input('Enter String: ')
 count = 1
 resultantStr = str()
