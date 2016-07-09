@@ -3,7 +3,7 @@
  */
 public class CTCI1_7
 {
-    public void zeroify(int[][] matrix)
+    public static void zeroify(int[][] matrix)
     {
         boolean[] row = new boolean[matrix.length];
         boolean[] col = new boolean[matrix[0].length];
@@ -18,6 +18,18 @@ public class CTCI1_7
                     col[j] = true;
                 }
             }
+        }
+        //call to nullify rows
+        for(int i=0;i<row.length;i++)
+        {
+            if(row[i])
+                nullifyRow(matrix,i);
+        }
+        //call to nullify columns
+        for(int j=0;j<col.length;j++)
+        {
+            if(col[j])
+                nullifyCol(matrix,j);
         }
     }
 
@@ -66,17 +78,29 @@ public class CTCI1_7
         }
     }
 
-    public static void main(String args)
-    {
 
+
+    public static void nullifyRow(int[][] matrix, int row)
+    {
+        for(int j=0;j<matrix[0].length;j++)
+        {
+            matrix[row][j]=0;
+        }
     }
-
-    public void nullifyRow(int[][] matrix, int row)
+    public static void nullifyCol(int[][] matrix, int col)
     {
-
+        for(int i=0;i<matrix.length;i++)
+        {
+            matrix[i][col]=0;
+        }
     }
-    public void nullifyCol(int[][] matrix, int col)
+    public static void main(String args[])
     {
+        int[][] matrix1 = randomMatrix(10, 15, 0, 100);
+        printMatrix(matrix1);
+        System.out.println();
+        zeroify(matrix1);
+        printMatrix(matrix1);
 
     }
 
