@@ -41,7 +41,21 @@ public class CTCI1_5
 		return customStr.toString();
 	}
 	}
-	
-	
-	
+	public static void main(String args[])
+	{
+		try
+		{
+			CTCI1_5 obj = new CTCI1_5();
+			System.out.println("Enter string");
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			String input=br.readLine();
+			String result=obj.compression(input);
+			System.out.println(result);
+
+		}
+		catch(IOException e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
 }
