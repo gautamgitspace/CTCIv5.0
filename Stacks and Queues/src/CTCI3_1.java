@@ -58,6 +58,28 @@ public class CTCI3_1
     {
         return stackNumber * sizeOfStack + stackPointer[stackNumber];
     }
-    
+    public static void main(String args[])
+    {
+        for(int i=0;i<100;i++)
+        {
+            push(1,i);
+        }
+        push(2, 4);
+        System.out.println("Peek 2: " + peek(2));
+        push(0, 3);
+        push(0, 7);
+        push(0, 5);
+        System.out.println("Peek 0: " + peek(0));
+        pop(0);
+        System.out.println("Peek 0: " + peek(0));
+        pop(0);
+        System.out.println("Peek 0: " + peek(0));
+        System.out.println("Peek 1: " + peek(1));
+        push(1,100);
+        System.out.println("Peek 1: " + peek(1));
+        //uncomment to raise overflow exception
+        //push(1,101);
+
+    }
 
 }
