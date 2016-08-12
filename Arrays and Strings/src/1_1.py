@@ -5,7 +5,7 @@ if len(str) == len(set(str)):
 else:
     print 'string has repeating characters'
 
-#2 when additional data structure is not allowed:
+#2 when additional data structure is not allowed: O(n) runtime
 str = raw_input('Enter the string to test: ')
 result = bool()
 for alphabet in str:
@@ -15,7 +15,7 @@ for alphabet in str:
     else:
         result = True
 print result
-#3 another approach - using strings
+#3 another approach - using strings O(n^2) runtime
 str = raw_input('Enter a string to test: ')
 count = 0
 result = True
@@ -27,7 +27,7 @@ for alphabet in str:
             if count > 1:
                 result = False
 print result
-#4 yet another approach using lists:
+#4 yet another approach using lists: O(n) runtime, additional data structure(list) same as hashset approach
 str = raw_input('Enter a string to test ')
 lst = list()
 result = True
