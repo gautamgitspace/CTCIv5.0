@@ -172,6 +172,23 @@ class linkedList
     			size--;
     			return;
     		}
+        if(val==end.getData())
+        {
+            System.out.println("XXX");
+            Node iterator = start;
+            Node previous = null;
+            while(iterator!=end)
+            {
+                previous=iterator;
+                iterator=iterator.getLink();
+            }
+            System.out.println(end.getData() + " Deleted!");
+            end=previous;
+            end.setLink(null);
+            size--;
+
+            return;
+        }
     		
     	Node ptr = start;
     	while(ptr!=null)
