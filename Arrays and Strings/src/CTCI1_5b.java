@@ -40,6 +40,7 @@ public class CTCI1_5b
                 count=1;
             }
         }
+        //ENTERTAINING THE VERY LAST
         index = setChar(container, count, index, comparator);
         return String.valueOf(container);
     }
@@ -77,10 +78,11 @@ public class CTCI1_5b
             {
                 comparator=string.charAt(i);
                 count=1;
-                stringSize += 1 + String.valueOf(count).length();
+                stringSize += 1 + Integer.toString(count).length();
             }
         }
-        stringSize += 1 + String.valueOf(count).length();
+        //ENTERTAINING THE VERY LAST
+        stringSize += 1 + Integer.toString(count).length();
         return stringSize;
     }
 
