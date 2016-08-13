@@ -1,11 +1,14 @@
+//Created by Gautam on 7/8/16.
+//String compression when String Buffer is allowed.
 import java.io.*;
 
 public class CTCI1_5
 {
-	int count=1;
+
 		
 	private String compression(String str)
 	{
+		int count=1;
 		if (str == null || str.isEmpty())
 		{
 			return "You've entered an empty string, program will terminate now";
@@ -55,11 +58,13 @@ public class CTCI1_5
 			else
 			{
 				last = string.charAt(i);
-				stringSize += 1 + String.valueOf(count).length();
+				//System.out.println("TEST: " + Integer.toString(count).length());
+				stringSize += 1 + Integer.toString(count).length();
+				System.out.println("CURRENT STRING SIZE: " + stringSize);
 				count = 1;
 			}
 		}
-			stringSize += 1 + String.valueOf(count).length();
+			stringSize += 1 + Integer.toString(count).length();
 		return  stringSize;
 	}
 	public static void main(String args[])
