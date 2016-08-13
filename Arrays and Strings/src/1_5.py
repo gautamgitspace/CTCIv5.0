@@ -7,7 +7,7 @@ comparator = input[0]
 lst = list()
 for alphabet in input:
     lst.append(alphabet)
-for item in lst[1:length+1]:
+for item in lst[1:length]:
     if item == comparator:
         count=count+1
     else:

@@ -1,4 +1,6 @@
+package CTCI3_1;
 import java.util.EmptyStackException;
+
 
 /**
  * Created by Gautam on 7/9/16.

@@ -17,6 +17,7 @@ class CTCI1_4
 			}
 		}
 		index = length + spaceCount*2;
+		System.out.println("INDEX: " + index);
 		input[index] = '\0';
 		for(i=length-1; i>=0; i--)
 		{
@@ -37,9 +38,12 @@ class CTCI1_4
 	public static void main(String args[])
 	{
 		int i, size;
-		String string = "a b c d e f";
+		String string = "hello daddy D";
 		size = string.length();
-		char[] input = new char[string.length() + 5*2+1];
+		System.out.println(size);
+		int char_size = string.length() + 5*2+1;
+		System.out.println("enough space: " + char_size);
+		char[] input = new char[char_size];
 		for(i=0;i<string.length();i++)
 		{
 			input[i]=string.charAt(i);

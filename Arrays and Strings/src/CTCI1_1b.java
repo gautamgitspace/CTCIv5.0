@@ -21,7 +21,7 @@ public class CTCI1_1b
     public static void main(String[] args)
     {
 
-        String str = "abc";
+        String str = "aAbc";
         CTCI1_1b uc = new CTCI1_1b();
         boolean result = uc.checkUnique(str);
         if(result)

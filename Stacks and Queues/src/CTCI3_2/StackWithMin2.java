@@ -16,7 +16,7 @@ public class StackWithMin2 extends Stack<Integer>
 
     public void push(int value)
     {
-        //compare value with integet.maxvalue, if less (obvious) push it to min stack
+        //compare value with integer.maxvalue, if less (obvious) push it to min stack
         if (value <= min())
         {
             s2.push(value);
