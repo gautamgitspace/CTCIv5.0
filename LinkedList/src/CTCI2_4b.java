@@ -34,7 +34,7 @@ public class CTCI2_4b
 
     public static void main(String[] args)
     {
-        int[] values = {1, 3, 7, 5, 2, 9, 4};
+        int[] values = {25, 10, 19, 8, 12, 13};
         System.out.println("GENERATING HEAD. . .");
         LinkedListNode head = new LinkedListNode(values[0], null, null);
         LinkedListNode current = head;
@@ -50,7 +50,7 @@ public class CTCI2_4b
         System.out.println(head.printForward());
         System.out.println("PARTITIONING LIST. . .");
 
-        LinkedListNode h = partition(head,7);
+        LinkedListNode h = partition(head,13);
 
         System.out.println("PARTITIONING RESULT----->");
         System.out.println(h.printForward());
