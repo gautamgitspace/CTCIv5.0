@@ -28,11 +28,15 @@ public class Stack
 
     public boolean push(int v)
     {
+        /*check availability before pushing*/
         if (size >= capacity) return false;
         size++;
         Node n = new Node(v);
+        /*if this is the only element, bottom = top = n*/
         if (size == 1) bottom = n;
+        /*Otherwise, join the new node n to the existing top*/
         join(n, top);
+        /*Make the new node the new TOP*/
         top = n;
         return true;
     }
@@ -40,7 +44,9 @@ public class Stack
     public int pop()
     {
         Node t = top;
+        /*element below the popped element becomes the new TOP*/
         top = top.below;
+        /*decrement size of the stack*/
         size--;
         return t.value;
     }
@@ -52,6 +58,7 @@ public class Stack
     public int removeBottom()
     {
         Node b = bottom;
+        /*Node above the bottom one(that gets removed) becomes the new BOTTOM*/
         bottom = bottom.above;
         System.out.println(bottom.value + " becomes the new bottom");
         if (bottom != null) bottom.below = null;
