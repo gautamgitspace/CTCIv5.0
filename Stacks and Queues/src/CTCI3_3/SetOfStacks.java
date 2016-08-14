@@ -57,10 +57,12 @@ public class SetOfStacks
     //important pseudocode
     public int leftShift(int index, boolean removeTop)
     {
+        /*Fetch the stack at that index*/
         Stack stack = stacks.get(index);
         int removed_item;
         if (removeTop)
         {
+            /*will be always true for the first time*/
             removed_item = stack.pop();
             System.out.println("=========================>HERE");
             System.out.println("removed_item: " + removed_item + " at top of index " + index);
@@ -73,15 +75,19 @@ public class SetOfStacks
         }
         if (stack.isEmpty())
         {
+            /*Remove the stack from the ArrayList if its completely empty after suffering from left shifts*/
             stacks.remove(index);
         }
+        /*Keep on shifting un till the length of the ArrayList*/
         else if (stacks.size() > index + 1)
         {
             System.out.println("comparing size of arraylist: " + stacks.size()+ " with index: " + index);
+            /*Recursively call leftShift*/
             int v = leftShift(index + 1, false);
             System.out.println("pushing: " + v + " to top of index: " + index);
             stack.push(v);
         }
+        /*returns what pop() had to return*/
         return removed_item;
     }
 
