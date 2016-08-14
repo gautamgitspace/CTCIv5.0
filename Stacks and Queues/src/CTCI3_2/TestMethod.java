@@ -27,7 +27,7 @@ public class TestMethod
         for (int i = 0; i < 15; i++)
         {
             int index=i;
-            System.out.println("Popped[" + ++index +"]" + stack2.pop());
+            System.out.println("Popped(" + Integer.toString(stack2.pop()) + ")" + " at index[" + ++index +"]");
             if(!stack2.isEmpty())
                 System.out.println("New min is " +  stack2.min());
             else

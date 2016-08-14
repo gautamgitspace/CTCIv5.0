@@ -9,6 +9,7 @@ public class StackWithMin2 extends Stack<Integer>
 {
     Stack<Integer> s2;
 
+    //DEF CONS
     public StackWithMin2()
     {
         s2 = new Stack<Integer>();
