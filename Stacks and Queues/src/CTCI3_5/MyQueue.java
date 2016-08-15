@@ -1,35 +1,45 @@
 package CTCI3_5;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
+
+import static javafx.scene.input.KeyCode.T;
 
 /**
  * Created by Gautam on 8/15/16.
  */
-public class MyQueue<T>
+public class MyQueue
 {
-    Stack<T> inbox;
-    Stack<T> outbox;
+    Stack<Integer> inbox;
+    Stack<Integer> outbox;
 
     MyQueue()
     {
-        inbox = new Stack<T>();
-        outbox= new Stack<T>();
+        System.out.println("DEF CONS");
+        inbox = new Stack<Integer>();
+        outbox= new Stack<Integer>();
+    }
+    /*GET SIZE METHOD*/
+    public Integer size()
+    {
+        return inbox.size() + outbox.size();
     }
     /*PEEK METHOD*/
-    public T peek()
+    public Integer peek()
     {
         shiftStacks();
         return outbox.peek();
     }
 
     /*DEQUEUE METHOD*/
-    public T dequeue()
+    public Integer dequeue()
     {
         shiftStacks();
         return outbox.pop();
     }
     /*ENQUEUE METHOD*/
-    public void add(T value)
+    public void add(Integer value)
     {
         inbox.push(value);
     }
@@ -45,4 +55,7 @@ public class MyQueue<T>
             }
         }
     }
+
+    /* #DRIVER# */
+
 }
