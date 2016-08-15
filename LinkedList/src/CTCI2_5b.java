@@ -65,7 +65,7 @@ public class CTCI2_5b
             l2 = padList(l2, len1 - len2);
         }
 
-        //*MAIN CALL TO ADD LISTS*
+        /*MAIN CALL TO ADD LISTS WITH NEW PADDED LISTS*/
         PartialSum sum = addListsHelper(l1, l2);
         //if there was a carry value left over, insert this at the front of the list. Otherwise, just return the linked list.
         if (sum.carry == 0)
@@ -77,7 +77,7 @@ public class CTCI2_5b
         else
         {
             //insert carry at the front of the list case
-            System.out.println("insert carry at the front of the list case case");
+            System.out.println("insert carry at the front of the list case");
             LinkedListNode result = insertBefore(sum.sum, sum.carry);
             return result;
         }
@@ -133,7 +133,7 @@ public class CTCI2_5b
         LinkedListNode lA3 = new LinkedListNode(3, null, lA2);
         LinkedListNode lA4 = new LinkedListNode(4, null, lA3);
 
-        LinkedListNode lB1 = new LinkedListNode(9, null, null);
+        LinkedListNode lB1 = new LinkedListNode(5, null, null);
         LinkedListNode lB2 = new LinkedListNode(8, null, lB1);
         LinkedListNode lB3 = new LinkedListNode(6, null, lB2);
         LinkedListNode lB4 = new LinkedListNode(7, null, lB3);

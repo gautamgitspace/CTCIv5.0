@@ -12,7 +12,7 @@ public class StackWithMin2 extends Stack<Integer>
     //DEF CONS
     public StackWithMin2()
     {
-        s2 = new Stack<Integer>();
+        s2 = new Stack<>();
     }
 
     public void push(int value)

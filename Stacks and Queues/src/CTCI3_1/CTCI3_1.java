@@ -12,6 +12,9 @@ public class CTCI3_1
     private static int sizeOfStack = 100;
     private static int[] buffer = new int[sizeOfStack*3];
     private static int[] stackPointer = {-1, -1, -1};
+
+    /*Takes two args - Stack Number to which to push and the value itself to be pushed*/
+
     private static void push(int stackNumber, int value)
     {
         //TODO check if we have space to push?
@@ -76,7 +79,6 @@ public class CTCI3_1
         System.out.println("Peek 0: " + peek(0));
         pop(0);
         System.out.println("Peek 0: " + peek(0));
-        System.out.println("Peek 1: " + peek(1));
         System.out.println("Peek 1: " + peek(1));
         //uncomment to raise overflow exception
         //push(1,101);

@@ -25,6 +25,7 @@ public class CTCI2_5
             Node temp = null;
             int carry = 0, sum;
 
+            /*MAIN LOOP TO ITERATE THROUGH THE LIST*/
             while (first != null || second != null)
             {
                 sum = carry + (first != null ? first.data : 0) + (second != null ? second.data : 0);
@@ -50,10 +51,10 @@ public class CTCI2_5
                     prev.next = temp;
                 }
 
-                //keep track of prev for the resultant list
+                /*keep track of prev for the resultant list*/
                 prev = temp;
 
-                // keep moving first and second until they reach null
+                /*ITERATORS FOR WHILE LOOP - keep moving first and second until they reach null*/
                 if (first != null)
                 {
                     first = first.next;
@@ -66,7 +67,7 @@ public class CTCI2_5
 
             if (carry > 0)
             {
-                //last carry case. create a new node and add it to the end of the resultant list
+                /*last carry case. create a new node and add it to the end of the resultant list*/
                 temp.next = new Node(carry);
                 System.out.println("Last carry case");
             }
