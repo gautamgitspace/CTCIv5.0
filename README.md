@@ -7,3 +7,4 @@ C, C++, Java, Python
 Chapters:
 1. Arrays and Strings
 2. Linked Lists
+3. Stacks and Queues
