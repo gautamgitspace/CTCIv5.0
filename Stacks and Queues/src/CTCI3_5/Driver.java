@@ -45,7 +45,7 @@ public class Driver
                 if (top1 != top2)
                 {
                     /* ERROR CASE #1 */
-                    System.out.println("******* FAILURE - DIFFERENT TOPS: " + top1 + ", " + top2);
+                    System.out.println("FAILURE TYPE - DIFFERENT TOPS: " + top1 + ", " + top2);
                 }
                 System.out.println("Dequeued " + top1);
             }
@@ -55,13 +55,13 @@ public class Driver
                 /* ERROR CASE #2 */
                 if (test_queue.size() > 0 && test_queue.peek() != my_queue.peek())
                 {
-                    System.out.println("******* FAILURE - DIFFERENT TOP PEEKS: " + test_queue.peek() + ", " + my_queue.peek() + " ******");
+                    System.out.println("FAILURE TYPE - DIFFERENT TOP PEEKS: " + test_queue.peek() + ", " + my_queue.peek() + " ******");
                 }
             }
             else
             {
                 /* ERROR CASE #3 */
-                System.out.println("******* FAILURE - DIFFERENT SIZES ******");
+                System.out.println(" FAILURE TYPE - DIFFERENT SIZES ");
             }
         }
     }
