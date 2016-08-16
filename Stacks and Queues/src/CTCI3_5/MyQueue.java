@@ -11,9 +11,13 @@ import static javafx.scene.input.KeyCode.T;
  */
 public class MyQueue
 {
+<<<<<<< HEAD
     /*STACK TO WHICH WE PUSH THE NEW INCOMING ELEMENTS*/
     Stack<Integer> inbox;
     /*STACK FROM WHICH WE POP OR DEQUEUE*/
+=======
+    Stack<Integer> inbox;
+>>>>>>> c2c7015f4831910c5fe7206af3ae73efc1f4cbd9
     Stack<Integer> outbox;
 
     MyQueue()
@@ -41,7 +45,11 @@ public class MyQueue
         return outbox.pop();
     }
     /*ENQUEUE METHOD*/
+<<<<<<< HEAD
     public void addToInbox(Integer value)
+=======
+    public void add(Integer value)
+>>>>>>> c2c7015f4831910c5fe7206af3ae73efc1f4cbd9
     {
         inbox.push(value);
     }
@@ -57,4 +65,10 @@ public class MyQueue
             }
         }
     }
+<<<<<<< HEAD
+=======
+
+    /* #DRIVER# */
+
+>>>>>>> c2c7015f4831910c5fe7206af3ae73efc1f4cbd9
 }

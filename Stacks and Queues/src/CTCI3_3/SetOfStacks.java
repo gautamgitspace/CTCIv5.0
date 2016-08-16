@@ -31,8 +31,12 @@ public class SetOfStacks
             last.push(v);
         }
         else
+<<<<<<< HEAD
         {
             //create new stack, push element to it, add stack to Arraylist
+=======
+        { //create new stack, push element to it, add stack to Arraylist
+>>>>>>> c2c7015f4831910c5fe7206af3ae73efc1f4cbd9
             Stack stack = new Stack(capacity);
             stack.push(v);
             stacks.add(stack);  //add stack to stacks. This is the only time when size of stacks increases.

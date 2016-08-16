@@ -28,6 +28,7 @@ public class Driver
         for (int i = 0; i < 10; i++)
         {
             int choice = randomIntInRange(0, 10);
+<<<<<<< HEAD
             //System.out.println("CHOICE WAS: " + choice);
             if (choice <= 5)
             {
@@ -35,11 +36,24 @@ public class Driver
                 int element = randomIntInRange(1, 10);
                 test_queue.add(element);
                 my_queue.addToInbox(element);
+=======
+            System.out.println("CHOICE WAS: " + choice);
+            if (choice <= 5)
+            {
+                /*ENQUEUE OPERATION*/
+
+                int element = randomIntInRange(1, 10);
+                test_queue.add(element);
+                my_queue.add(element);
+>>>>>>> c2c7015f4831910c5fe7206af3ae73efc1f4cbd9
                 System.out.println("Enqueued " + element);
             }
             else if(test_queue.size() > 0)
             {
+<<<<<<< HEAD
                 /*DEQUEUE OPERATION on both the Queues to TEST*/
+=======
+>>>>>>> c2c7015f4831910c5fe7206af3ae73efc1f4cbd9
                 int top1 = test_queue.remove();
                 int top2 = my_queue.dequeue();
                 if (top1 != top2)

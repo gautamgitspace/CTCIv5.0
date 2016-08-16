@@ -9,6 +9,7 @@ import java.util.Stack;
 
 public class SortStackASC
 {
+<<<<<<< HEAD
     private static Stack<Integer> sort(Stack<Integer> toBeSorted)
     {
         Stack<Integer> alreadySorted = new Stack<Integer>();
@@ -22,6 +23,21 @@ public class SortStackASC
             alreadySorted.push(tmp);
         }
         return alreadySorted;
+=======
+    private static Stack<Integer> sort(Stack<Integer> s)
+    {
+        Stack<Integer> r = new Stack<Integer>();
+        while(!s.isEmpty())
+        {
+            int tmp = s.pop();
+            while(!r.isEmpty() && r.peek() > tmp)
+            {
+                s.push(r.pop());
+            }
+            r.push(tmp);
+        }
+        return r;
+>>>>>>> c2c7015f4831910c5fe7206af3ae73efc1f4cbd9
     }
     private static int randomInt(int n)
     {
@@ -43,7 +59,10 @@ public class SortStackASC
         }
 
         stack = sort(stack);
+<<<<<<< HEAD
         System.out.println("SORTING USING ONE ADDITIONAL STACK O(n^2)");
+=======
+>>>>>>> c2c7015f4831910c5fe7206af3ae73efc1f4cbd9
         for(int j=0; j<10; j++)
         {
             int popped = stack.pop();
