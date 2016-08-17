@@ -39,13 +39,17 @@ public class AnimalQueue
     /*DEQUEUE ANY*/
     public Animal dequeueAny()
     {
-        /* NO NEED TO CHECK ORDER. JUST PEEK AND RETURN FROM WHICHEVER LIST HAS DOGS/CATS */
-        if (dogs.size() == 0)
+        /*WHEN ONE OF THE QUEUES (DOGS/CATS) IS EMPTY, RETURN FROM THE OTHER*/
+        if (dogs.size() == 0) {
+            System.out.println("DQ-1");
             return dequeueCats();
-        else if (cats.size() == 0)
+        }
+        else if (cats.size() == 0) {
+            System.out.println("DQ-2");
             return dequeueDogs();
+        }
 
-    /*TO DEQUEUE FROM DOGS OR CATS in particular, WE NEED TO CHECK THE ORDER*/
+    /*WHEN THEY ARE NOT EMPTY, WE NEED TO CHECK THE ORDER*/
         Dog dog = dogs.peek();
         Cat cat = cats.peek();
 
