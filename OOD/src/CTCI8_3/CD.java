@@ -10,9 +10,9 @@ public class CD
 {
     private String albumTitle;
     private String artist;
-    public Map<Integer , Song> tracks = new HashMap<Integer, Song>();
+    public HashMap<Integer , Song> tracks = new HashMap<Integer, Song>();
 
-    CD(String albumName, String artisName, Map records)
+    CD(String albumName, String artisName, HashMap records)
     {
         this.albumTitle = albumName;
         this.artist = artisName;

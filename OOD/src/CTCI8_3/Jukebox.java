@@ -1,6 +1,7 @@
 package CTCI8_3;
 
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Set;
 
 /**
@@ -12,6 +13,7 @@ public class Jukebox
     private  SongSelector songSelector;
     private User user;
     private Set<CD> cdSet = new HashSet<CD>();
+    private Hashtable<Integer, Song> trackTable = new Hashtable<Integer, Song>();
     User u;
 
 
@@ -27,6 +29,17 @@ public class Jukebox
     public void addToSet(CD cd)
     {
         cdSet.add(cd);
+    }
+    /*ADD SONGS TO THE HASH TABLE*/
+    public Song addToTrackTable(int id, String trackName, float trackLength, String artist, String CDTitle)
+    {
+        if(trackTable.containsKey(id))
+        {
+            return null;
+        }
+        Song song = new Song(id, trackName, trackLength, artist, CDTitle);
+        trackTable.put(id, song);
+        return song;
     }
 
     public Song getCurrentSong()
