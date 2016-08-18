@@ -12,6 +12,7 @@ public class Jukebox
     private  SongSelector songSelector;
     private User user;
     private Set<CD> cdSet = new HashSet<CD>();
+    User u;
 
 
     public Jukebox(CDPlayer cdPlayer, User user, Set<CD> cdSet, SongSelector ss)
@@ -32,8 +33,17 @@ public class Jukebox
     {
         return songSelector.getCurrentSong();
     }
-    public void setUser(User u)
+    public void setNewUser(String n, long i)
     {
-        this.user = u;
+     u = new User(n,i);
+    }
+    public void editUserInfo(String n, long i)
+    {
+        u.setName(n);
+        u.setUser_id(i);
+    }
+    public void recharge(long userID, Double amount)
+    {
+        u.setBalance(amount, userID);
     }
 }

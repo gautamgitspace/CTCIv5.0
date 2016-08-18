@@ -34,9 +34,11 @@ public class User
     {
         return new User(name, ID);
     }
-    public void setBalance(Double rechageAmount)
+    public void setBalance(Double rechageAmount, long UID)
     {
-        balance = balance+rechageAmount;
+        if(user_id==UID) {
+            balance = balance + rechageAmount;
+        }
     }
     public Double getCurrentBalance()
     {
