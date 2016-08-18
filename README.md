@@ -1,10 +1,12 @@
 # CTCIv5.0
 Practice code covering Cracking The Coding Interview 5th edition.
 
-Languages:
+#Languages:
 C, C++, Java, Python
 
-Chapters:
+#Chapters:
 1. Arrays and Strings
 2. Linked Lists
 3. Stacks and Queues
+4. Trees and Graphs
+5. Object-Oriented Design
