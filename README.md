@@ -10,3 +10,4 @@ C, C++, Java, Python
 3. Stacks and Queues
 4. Trees and Graphs
 5. Object-Oriented Design
+6. Sorting and Searching
