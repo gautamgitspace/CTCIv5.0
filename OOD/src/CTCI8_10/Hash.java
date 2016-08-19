@@ -15,6 +15,7 @@ public class Hash<K,V>
         items = (LinkedList<Cell<K, V>>[]) new LinkedList[MAX_SIZE];
     }
 
+    /*A PATHETIC HASH FUNCTION*/
     public int hashCodeOfKey(K key)
     {
         System.out.println("Key: " + key.toString() + " MAPPED TO POSITION: " + key.toString().length() % items.length);
@@ -54,6 +55,7 @@ public class Hash<K,V>
             return null;
         }
         LinkedList<Cell<K, V>> collided = items[x];
+        /*ITERATE THROUGH THE LIST TO FIND THE DESIRED KEY*/
         for (Cell<K, V> c : collided)
         {
             if (c.equivalent(key)) {
