@@ -36,16 +36,19 @@ public class LowestCommonAncestorBasic
 
         if (left != null && right != null)
         {
+            /*P AND Q ARE IN DIFF SUB TREES*/
+
             System.out.println("ROOT.DATA: "  + root.data);
             return root;
         }
         else if (root == p || root == q)
         {
+            /*RETURN ROOT TO THE PARENT*/
             return root;
         }
         else
         {
-            /*ONE OF P or Q is ANCESTOR ITSELF CASE*/
+            /*FINALLY WHICHEVER IS NOT NULL, THAT WILL BE THE COMMON ANCESTOR*/
             return left == null ? right : left;
         }
     }
