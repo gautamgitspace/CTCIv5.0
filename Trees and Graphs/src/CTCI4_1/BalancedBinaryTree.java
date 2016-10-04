@@ -1,8 +1,6 @@
 package CTCI4_1;
 
-import static CTCI4_1.TreeNode.inOrderTraversal;
-import static CTCI4_1.TreeNode.postOrderTraversal;
-import static CTCI4_1.TreeNode.preOrderTraversal;
+import static CTCI4_1.TreeNode.*;
 
 /**
  * Created by Gautam on 8/16/16.
@@ -51,7 +49,9 @@ public class BalancedBinaryTree
     {
         // Create balanced tree
         int[] array = {0, 1, 2, 3, 5, 6, 7, 8, 9, 10};
+        int[] array2 = {10, 20, 30, 40, 50, 60, 70};
         TreeNode root = TreeNode.createMinimalBST(array);
+        TreeNode root2 = TreeNode.createMinimalBST(array2);
         System.out.println("CALLING IN-ORDER");
         inOrderTraversal(root);
         System.out.println("CALLING PRE-ORDER");
@@ -60,13 +60,16 @@ public class BalancedBinaryTree
         postOrderTraversal(root);
 
         System.out.println("Is balanced? " + isBalanced(root));
-        root.print();
+        //root.print();
 
         /*UNBALANCE*/
-        root.insert(4);
+        //root.insert(4);
 
         root.print();
+        root2.print();
         System.out.println("Is balanced? " + isBalanced(root));
+
+        System.out.println("IS SAME IN-ORDER? : " + isSameInorder(root, root2));
     }
 
 }

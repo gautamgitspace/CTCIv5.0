@@ -1,5 +1,7 @@
 package CTCI4_1;
 
+import java.util.Stack;
+
 /**
  * Created by Gautam on 8/16/16.
  */
@@ -169,6 +171,55 @@ public class TreeNode
         /*SET RIGHT CHILDREN*/
         node.setRightChild(createMinimalBST(array, mid+1, end));
         return node;
+    }
+    /*CHECK IF TWO TREES HAVE THE SAME IN-ORDER USING 2 STACKS*/
+    public static boolean isSameInorder(TreeNode b1,  TreeNode b2)
+    {
+        Stack<TreeNode> stk1 = new Stack<>();
+        Stack<TreeNode> stk2 = new Stack<>();
+
+        while(b1!=null)
+        {
+            stk1.push(b1);
+            System.out.println("PUSHED on to STK 1: " + b1.data);
+            b1 = b1.left;
+        }
+
+
+        while(b2!=null)
+        {
+            stk2.push(b2);
+            System.out.println("PUSHED on to STK 2: " + b2.data);
+            b2 = b2.left;
+        }
+
+        while(!stk1.isEmpty() && !stk2.isEmpty())
+        {
+            System.out.println("POPPING CHERRY @ stk1: " + stk1.peek().data);
+            TreeNode a = stk1.pop();
+            System.out.println("POPPING CHERRY @ stk2: " + stk2.peek().data);
+            TreeNode b = stk2.pop();
+            if(a.data != b.data)
+            {
+                return false;
+            }
+            a = a.right;
+            b = b.right;
+            while(a!=null)
+            {
+                stk1.push(a);
+                System.out.println("PUSHED on to STK 1: " + a.data);
+                a = a.left;
+            }
+
+            while(b!=null)
+            {
+                stk2.push(b);
+                System.out.println("PUSHED on to STK 2: " + b.data);
+                b = b.left;
+            }
+        }
+        return true;
     }
 
     /*CREATE A BINARY SEARCH TREE - HELPER FUNCTION*/
