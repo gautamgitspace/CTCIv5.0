@@ -12,7 +12,8 @@ public class CTCI2_4
         LinkedListNode beforeEnd = null;
         LinkedListNode afterStart = null;
         LinkedListNode afterEnd = null;
-
+        LinkedListNode pivotStart = null;
+        LinkedListNode pivotEnd = null;
 		/* Partition list */
         while (node != null)
         {
@@ -35,7 +36,7 @@ public class CTCI2_4
                     System.out.println("ADDED " + node.data + " TO beforeStart");
                 }
             }
-            else
+            else if(node.data > x)
             {
                 if (afterStart == null)
                 {
@@ -50,16 +51,23 @@ public class CTCI2_4
                     System.out.println("ADDED " + node.data + " TO afterStart");
                 }
             }
+            else if(node.data == x)
+            {
+                pivotStart = node;
+                pivotEnd = pivotStart;
+            }
             node = next;
         }
 
 		/* Merge before list and after list */
         if (beforeStart == null)
         {
-            return afterStart;
+            pivotEnd.next = afterStart;
+            return pivotEnd;
         }
 
-        beforeEnd.next = afterStart;
+        beforeEnd.next = pivotStart;
+        pivotStart.next = afterStart;
         return beforeStart;
     }
 
@@ -81,7 +89,7 @@ public class CTCI2_4
         System.out.println(head.printForward());
         System.out.println("PARTITIONING LIST. . .");
 
-        LinkedListNode h = partition(head,13);
+        LinkedListNode h = partition(head,8);
 
         System.out.println("PARTITIONING RESULT----->");
         System.out.println(h.printForward());
