@@ -1,5 +1,8 @@
 package CTCI4_1;
 
+import apple.laf.JRSUIUtils;
+import com.sun.source.tree.Tree;
+
 import java.util.Stack;
 
 /**
@@ -38,7 +41,7 @@ public class TreeNode
         }
     }
     /*INSERT ELEMENTS IN ORDER*/
-    public   void insert(int d)
+    public void insert(int d)
     {
         if(d<=data)
         {
@@ -192,7 +195,7 @@ public class TreeNode
             System.out.println("PUSHED on to STK 2: " + b2.data);
             b2 = b2.left;
         }
-
+        System.out.println();
         while(!stk1.isEmpty() && !stk2.isEmpty())
         {
             System.out.println("POPPING CHERRY @ stk1: " + stk1.peek().data);
@@ -208,18 +211,31 @@ public class TreeNode
             while(a!=null)
             {
                 stk1.push(a);
-                System.out.println("PUSHED on to STK 1: " + a.data);
+                System.out.println("PUSHED @ STK 1: " + a.data);
                 a = a.left;
             }
 
             while(b!=null)
             {
                 stk2.push(b);
-                System.out.println("PUSHED on to STK 2: " + b.data);
+                System.out.println("PUSHED @ STK 2: " + b.data);
                 b = b.left;
             }
         }
         return true;
+    }
+
+    /*IS SAME TREE*/
+    public boolean isSameTree(TreeNode p, TreeNode q)
+    {
+        if(p == null && q == null)
+            return true;
+        if(p == null || q == null)
+            return false;
+        boolean isLeftSame = isSameTree(p.left, q.left);
+        boolean isRightSame = isSameTree(p.right, q.right);
+
+        return p.data == q.data && isLeftSame && isRightSame;
     }
 
     /*CREATE A BINARY SEARCH TREE - HELPER FUNCTION*/
