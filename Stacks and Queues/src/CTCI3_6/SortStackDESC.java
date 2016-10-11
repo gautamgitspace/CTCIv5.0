@@ -22,6 +22,7 @@ public class SortStackDESC
         }
         return alreadySorted;
     }
+
     private static int randomInt(int n)
     {
         return (int) (Math.random() * n);
@@ -34,18 +35,18 @@ public class SortStackDESC
 
     public static void main(String [] args)
     {
-        Stack<Integer> stack = new Stack<Integer>();
+        Stack<Integer> toBeSorted = new Stack<Integer>();
         for (int i = 0; i < 10; i++)
         {
             int randomPush = randomIntInRange(0, 100);
-            stack.push(randomPush);
+            toBeSorted.push(randomPush);
         }
 
-        stack = sort(stack);
+        toBeSorted = sort(toBeSorted);
         System.out.println("SORTING USING ONE ADDITIONAL STACK O(n^2)");
         for(int j=0; j<10; j++)
         {
-            int popped = stack.pop();
+            int popped = toBeSorted.pop();
             System.out.println("POPPING CHERRY: " + popped);
         }
 
