@@ -1,6 +1,7 @@
 package CTCI4_4;
 
 import CTCI4_1.TreeNode;
+import com.apple.eawt.AppEvent;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -11,7 +12,8 @@ import java.util.LinkedList;
  */
 public class LinkedListOfNodes_BFS_ITR
 {
-    public static ArrayList<LinkedList<TreeNode>> createLevelLinkedList(TreeNode root) {
+    public static ArrayList<LinkedList<TreeNode>> createLevelLinkedList(TreeNode root)
+    {
         ArrayList<LinkedList<TreeNode>> result = new ArrayList<LinkedList<TreeNode>>();
 
         LinkedList<TreeNode> current = new LinkedList<TreeNode>();
@@ -27,6 +29,9 @@ public class LinkedListOfNodes_BFS_ITR
             System.out.println("CURRENT ADDED TO RESULT");
             /*GO TO NEXT LEVEL OF DEPTH*/
             LinkedList<TreeNode> parents = current;
+            for(int i = 0; i < parents.size(); i++) {
+                System.out.println("NEW PARENT(S) ARE: " + parents.get(i).data);
+            }
             current = new LinkedList<TreeNode>();
             for (TreeNode parent : parents)
             {
