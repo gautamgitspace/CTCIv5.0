@@ -32,6 +32,7 @@ public class LinkedListOfNodes_BFS_ITR
             for(int i = 0; i < parents.size(); i++) {
                 System.out.println("NEW PARENT(S) ARE: " + parents.get(i).data);
             }
+            System.out.println("Creating new LL CURRENT for this Depth with size 0");
             current = new LinkedList<TreeNode>();
             for (TreeNode parent : parents)
             {
@@ -48,7 +49,7 @@ public class LinkedListOfNodes_BFS_ITR
                 }
             }
         }
-
+        System.out.println("BYE");
         return result;
     }
 
