@@ -22,12 +22,15 @@ public class LowestCommonAncestorBasic
 
         TreeNode left = commonAncestorBad(root.left, p, q);
         TreeNode right = commonAncestorBad(root.right, p, q);
+
+        /*SEARCH LEFT*/
         if (left != null && left != p && left != q)
         {
             System.out.println("IN LEFT SUBTREE CASE");
             return left;
         }
 
+        /*SEARCH RIGHT*/
         if (right != null && right != p && right != q)
         {
             System.out.println("IN RIGHT SUBTREE CASE");
@@ -36,8 +39,7 @@ public class LowestCommonAncestorBasic
 
         if (left != null && right != null)
         {
-            /*P AND Q ARE IN DIFF SUB TREES*/
-
+            /*THIS NODE GETS NOT NULL FROM BOTH LEFT SIDE AND THE RIGHT SIDE*/
             System.out.println("ROOT.DATA: "  + root.data);
             return root;
         }
@@ -53,17 +55,41 @@ public class LowestCommonAncestorBasic
         }
     }
 
+    private static TreeNode lca(TreeNode root, TreeNode n1, TreeNode n2)
+    {
+
+        if(root == null)
+        {
+            return null;
+        }
+
+        if(root == n1 || root == n2)
+        {
+            return root;
+        }
+
+        TreeNode left = lca(root.left, n1, n2);
+        TreeNode right = lca(root.right, n1, n2);
+
+        if(left != null && right != null)
+        {
+            return root;
+        }
+        return left != null ? left : right;
+    }
+
     public static void main(String[] args) {
         int[] array = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
         TreeNode root = TreeNode.createMinimalBST(array);
         root.print();
         System.out.println("IN MAIN: " + root.data);
-        TreeNode n3 = root.search(1);
-        TreeNode n7 = root.search(3);
+        TreeNode n3 = root.search(4);
+        TreeNode n7 = root.search(7);
         TreeNode ancestor = commonAncestorBad(root, n3, n7);
+        TreeNode ancestor2 = lca(root, n3, n7);
         if (ancestor != null)
         {
-            System.out.println("COMMON ANCESTOR IS: " + ancestor.data);
+            System.out.println("COMMON ANCESTOR IS: " + ancestor2.data);
         } else {
             System.out.println("null");
         }
