@@ -25,7 +25,7 @@ public class Graph
         }
         else
         {
-            System.out.println("GRAPH FULL BRUH");
+            System.out.println("GRAPH PHULL BRUH");
         }
     }
     /*TO FETCH SOURCE AND DESTINATIONS*/

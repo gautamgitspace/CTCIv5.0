@@ -13,7 +13,7 @@ public class Node
     /*ADJACENT LENGTH IS THE NEIGHBORING NODE COUNT*/
     /*A NEW NODE WHEN FORMED, TELLS IT'S NAME AND THE NUMBER OF NEIGHBORS IT WILL HAVE*/
 
-    //CONS
+    //DEF CONS
     public Node(String vertex, int adjacentLength)
     {
         this.vertex=vertex;

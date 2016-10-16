@@ -1,6 +1,8 @@
 package CTCI4_2;
 
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
 /**
  * Created by Gautam on 8/16/16.
@@ -16,17 +18,18 @@ public class Driver
     {
         /*STEP 1: CREATE NODES*/
 
-        Node a = new Node("a", 3);
-        Node b = new Node("b", 0);
+        Node a = new Node("a", 2);
+        Node b = new Node("b", 1);
         Node c = new Node("c", 0);
         Node d = new Node("d", 1);
         Node e = new Node("e", 1);
         Node f = new Node("f", 0);
 
         /*ADD NODES TO ADJACENCY LIST I.E. FORM THE GRAPH*/
-        a.addAdjacent(a);
+
         a.addAdjacent(b);
         a.addAdjacent(c);
+        b.addAdjacent(d);
         d.addAdjacent(e);
         e.addAdjacent(f);
 
@@ -42,12 +45,14 @@ public class Driver
 
         /*FETCH NODES TO DECIDE SOURCE AND DESTINATION*/
         Node fetch[] = graph.getNodes();
-        Node source = fetch[3];
+        /*CHOOSE SOURCE AND DEST*/
+        Node source = fetch[0];
         Node destination = fetch[5];
 
         System.out.println("PATH FROM: " + source.getVertexName() + " TO: " + destination.getVertexName() + " EXISTS? =>");
         /*CALL TO SEARCH FUNCTION*/
         System.out.println(search(graph, source, destination));
+        System.out.println(hasCycle(graph));
 
     }
 
@@ -62,7 +67,7 @@ public class Driver
         {
             u.state = State.Unvisited;
         }
-        /*MARK START AS VISITING AND ADD IT TO Q*/
+        /*MARK SOURCE AS VISITING AND ADD IT TO Q*/
         s.state = State.Visiting;
         q.add(s);
         Node next;
@@ -93,4 +98,56 @@ public class Driver
         return false;
     }
 
+    public static boolean hasCycle(Graph g)
+    {
+        Set<Node> white = new HashSet<>();
+        Set<Node> black = new HashSet<>();
+        Set<Node> gray = new HashSet<>();
+
+        for(Node v : g.getNodes())
+        {
+            /*ADD ALL TO WHITE*/
+            white.add(v);
+        }
+        while(white.size() > 0)
+        {
+            /*KEEP FETCHING FROM WHITE AND TESTING*/
+            Node toTest = white.iterator().next();
+            if(dfs(toTest, white, gray, black))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static  boolean dfs(Node toTest, Set<Node> whiteSet, Set<Node> blackSet, Set<Node> graySet)
+    {
+        /*MOVE FROM WHITE TO GRAY AND EXPLORE IT*/
+        moveNode(toTest, whiteSet, graySet);
+        for(Node ne : toTest.getAdjacencyList())
+        {
+            if(blackSet.contains(ne))
+            {
+                continue;
+            }
+            if(graySet.contains(ne))
+            {
+                return true;
+            }
+            if(dfs(ne, whiteSet, blackSet, graySet))
+            {
+                return true;
+            }
+        }
+        /*MOVE TO BLACK WHEN EXPLORED*/
+        moveNode(toTest, graySet, blackSet);
+        return false;
+    }
+
+    public static void moveNode(Node toMove, Set<Node> moveFrom, Set<Node> moveTo)
+    {
+        moveFrom.remove(toMove);
+        moveTo.add(toMove);
+    }
 }
