@@ -23,7 +23,7 @@ public class Driver
         }
 
         Song nowPlaying = shuffle.shufflePlay();
-
+        System.out.println(shuffle.tracker);
         System.out.println("NOW PLAYING:\n");
         System.out.println(nowPlaying.getTrackName());
         System.out.println(nowPlaying.getTrackAlbum());

@@ -9,12 +9,14 @@ import java.util.Random;
  */
 public class Shuffle
 {
-    public HashMap<String, Song> shuffler;
-    public ArrayList<String> tracker;
+    public HashMap<Integer, Song> shuffler;
+    public ArrayList<Integer> tracker;
+    int count;
     public Shuffle()
     {
-        shuffler = new HashMap<String, Song>();
-        tracker = new ArrayList<String>();
+        shuffler = new HashMap<Integer, Song>();
+        tracker = new ArrayList<Integer>();
+        count = 0;
     }
 
     public static String generateRandomSlug()
@@ -33,15 +35,17 @@ public class Shuffle
     public void addSong(Song song)
     {
         String trackRandomSlug = generateRandomSlug();
-        shuffler.put(trackRandomSlug, song);
-        tracker.add(trackRandomSlug);
+        /*DONE USING A SIMPLE INTEGER VALUE*/
+        count++;
+        shuffler.put(count, song);
+        tracker.add(count);
     }
 
     public Song shufflePlay()
     {
         Random random = new Random();
         int n = random.nextInt(tracker.size());
-        String key = tracker.get(n);
+        int key = tracker.get(n);
         Song song = shuffler.get(key);
         return song;
     }
