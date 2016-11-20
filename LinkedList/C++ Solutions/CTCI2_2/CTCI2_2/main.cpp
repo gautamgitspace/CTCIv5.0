@@ -32,7 +32,7 @@ LinkedList::~LinkedList()
     std::cout << "List successfully deleted from memory" << std::endl;
 }
 
-int LinkedList::ktoLast(Node* head, int k)
+Node* LinkedList::ktoLast(Node* head, int k)
 {
     Node *ptr1=head;
     Node *ptr2=head;
@@ -52,7 +52,7 @@ int LinkedList::ktoLast(Node* head, int k)
         ptr1 = ptr1->next;
         ptr2 = ptr2->next;
     }
-    return ptr1->data;
+    return ptr1;
 }
 
 void LinkedList::insert(int value)
@@ -73,6 +73,18 @@ void LinkedList::insert(int value)
     }
 }
 
+void LinkedList::deleteKthLastNode(Node* ptr)
+{
+    Node *s = head;
+    Node *prev = head;
+    while(s->next!=ptr->next)
+    {
+        prev = s;
+        s = s->next;
+    }
+    /*NOW PREV WILL HAVE THE PREVIOUS*/
+    prev->next = ptr->next;
+}
 
 void LinkedList::display()
 {
@@ -107,8 +119,10 @@ int main(int argc, const char * argv[])
     linkedlist.insert(10);
     
     linkedlist.display();
-    cout<<"Kth to Last: "<<linkedlist.ktoLast(linkedlist.head, 3)<<endl;
+    cout<<"Kth to Last: "<<linkedlist.ktoLast(linkedlist.head, 3)->data<<endl;
+    cout<<"Attempting to delete Kth to Last"<<endl;
+    linkedlist.deleteKthLastNode(linkedlist.ktoLast(linkedlist.head, 3));
+    linkedlist.display();
     
         return 0;
-
 }

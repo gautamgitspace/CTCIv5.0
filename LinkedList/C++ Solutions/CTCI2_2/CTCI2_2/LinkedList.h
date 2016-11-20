@@ -26,7 +26,8 @@ public:
     void display();
     void insert(int value);
     void createCycle();
-    int ktoLast(Node* head, int k);
+    Node* ktoLast(Node* head, int k);
+    void deleteKthLastNode(Node* ptr);
 private:
     // added this so insertion is O(1) time
     Node* tail;
