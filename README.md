@@ -2,7 +2,7 @@
 Practice code covering Cracking The Coding Interview 5th edition.
 
 #Languages:
-C, C++, Java, Python
+C, C++, Java, Python, Go
 
 #Chapters:
 1. Arrays and Strings
