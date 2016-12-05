@@ -5,6 +5,11 @@ public class CTCI1_7
 {
     public static void zeroify(int[][] matrix)
     {
+
+        /*TWO BOOLEAN ARRAYS. ONE FOR ROW AND ONE FOR COLUMN*/
+        //System.out.println("matrix.length: " + matrix.length);
+        //System.out.println("matrix[0].length: " + matrix[0].length);
+
         boolean[] row = new boolean[matrix.length];
         boolean[] col = new boolean[matrix[0].length];
 

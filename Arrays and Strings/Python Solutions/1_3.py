@@ -8,4 +8,4 @@ def isPermute(str1, str2):
         return True
     else:
         return False
-print isPermute("abcd", "aabc")
+print isPermute("hello", "lelho")
