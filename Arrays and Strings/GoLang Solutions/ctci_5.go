@@ -37,7 +37,6 @@ func compress(inputString string) string {
     if compareSize >= originalLength {
       return inputString
     }
-    //var customString string = ""
     var buffer bytes.Buffer
     last := string(inputString[0])
     for i:=1; i<len(inputString); i++ {
@@ -45,19 +44,15 @@ func compress(inputString string) string {
         count++
       }else{
           buffer.WriteString(string(last))
-          //customString += (string(last))
           //fmt.Println("CUSTOM STRING:", buffer.String())
           buffer.WriteString(strconv.Itoa(count))
           //fmt.Println("CUSTOM STRING AFTER APPENDING COUNT:", buffer.String())
-          //customString += (string(count))
           last = string(inputString[i])
           count = 1
         }
       }
       buffer.WriteString(last)
-      //customString = customString + string(last)
       buffer.WriteString(strconv.Itoa(count))
-      //customString = customString + string(count)
       return buffer.String()
   }
 }
