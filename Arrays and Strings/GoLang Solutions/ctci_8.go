@@ -13,8 +13,8 @@ func isSubstring(big string, small string) bool {
 
 func isRotation(s1 string, s2 string) bool {
   if len(s1) == len(s2) && len(s1) > 0 {
-    bigString := s1 + s2
-    fmt.Println(bigString)
+    bigString := s1 + s1
+    //fmt.Println(bigString)
     return isSubstring(bigString, s2)
   }
   return false
@@ -22,6 +22,9 @@ func isRotation(s1 string, s2 string) bool {
 
 func main() {
 first := "razer"
-second := "hello"
+second := "erraz"
+third := "waterbottle"
+fourth := "bottleterwa"
 fmt.Println(isRotation(first, second))
+fmt.Println(isRotation(third, fourth))
 }
