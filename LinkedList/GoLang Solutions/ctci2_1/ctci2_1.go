@@ -1,5 +1,10 @@
 package main
 
+import (
+	"math/rand"
+	"time"
+)
+
 type Node struct {
 	next *Node
 	data int
@@ -34,10 +39,25 @@ func (l *List) peakFront() *Node {
 	return l.head
 }
 
-func (l *List) Len() int {
+func (l *List) size() int {
 	return l.size
 }
 
-func (l *List) lenDecrement() {
+func (l *List) sizeDecrement() {
 	l.size--
+}
+
+//hey slave! Give me a random integer
+func randomNumberGenerator(min int, max int) int {
+	return min + rand.Intn(max-min)
+}
+
+//hey slave! Give me a list with random values between min and max
+func randomListGenerator(limit, max, min int) *List {
+	rand.Seed(time.Now().UTC().UnixNano())
+	l := new(List)
+	for i := 0; i < limit; i++ {
+		l.insertFront(randomNumberGenerator(min, max))
+	}
+	return l
 }
