@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bytes"
+	"fmt"
 	"math/rand"
 	"time"
 )
@@ -38,12 +40,10 @@ func (l *List) sizeDecrement() {
 	l.size--
 }
 
-//hey slave! Give me a random integer
 func randomNumberGenerator(min int, max int) int {
 	return min + rand.Intn(max-min)
 }
 
-//hey slave! Give me a list with random values between min and max
 func randomListGenerator(limit, max, min int) *List {
 	rand.Seed(time.Now().UTC().UnixNano())
 	l := new(List)
@@ -51,4 +51,34 @@ func randomListGenerator(limit, max, min int) *List {
 		l.insertFront(randomNumberGenerator(min, max))
 	}
 	return l
+}
+
+func (l *List) printList() string {
+	var buffer bytes.Buffer
+	for current := l.head; current != nil; current = current.next {
+		buffer.WriteString(fmt.Sprintf("%v", current.data))
+		buffer.WriteString(" -> ")
+	}
+	buffer.WriteString("nil")
+	return buffer.String()
+}
+
+//using hashset - O(n) time and space
+func removeDups(l *List) {
+	if l.peakFront() == nil {
+		return
+	}
+	//key(int) value(bool) map
+	set := make(map[int]bool)
+	var prev *Node
+	for e := l.peakFront(); e != nil; e = e.next {
+		val := e.data
+		if set[val] {
+			prev.next = e.next
+			l.sizeDecrement()
+		} else {
+			set[val] = true
+			prev = e
+		}
+	}
 }
