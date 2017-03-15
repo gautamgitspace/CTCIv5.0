@@ -82,3 +82,16 @@ func removeDups(l *List) {
 		}
 	}
 }
+
+func buildListWithDups() *List {
+	l := new(List)
+	l.insertFront(11)
+	l.insertFront(22)
+	l.insertFront(33)
+	l.insertFront(44)
+	l.insertFront(44)
+	l.insertFront(22)
+	l.insertFront(11)
+	//fmt.Println(reflect.TypeOf(l))
+	return l
+}
