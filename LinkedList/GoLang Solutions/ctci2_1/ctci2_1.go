@@ -95,3 +95,10 @@ func buildListWithDups() *List {
 	//fmt.Println(reflect.TypeOf(l))
 	return l
 }
+
+func main() {
+	l1 := buildListWithDups()
+	fmt.Printf("BEFORE    : %v\n", l1.printList())
+	removeDups(l1)
+	fmt.Printf("AFTER     : %v\n", l1.printList())
+}
