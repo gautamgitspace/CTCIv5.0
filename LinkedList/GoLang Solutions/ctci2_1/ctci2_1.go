@@ -39,11 +39,9 @@ func (l *List) sizeOfList() int {
 func (l *List) sizeDecrement() {
 	l.size--
 }
-
 func randomNumberGenerator(min int, max int) int {
 	return min + rand.Intn(max-min)
 }
-
 func randomListGenerator(limit, max, min int) *List {
 	rand.Seed(time.Now().UTC().UnixNano())
 	l := new(List)
@@ -52,7 +50,6 @@ func randomListGenerator(limit, max, min int) *List {
 	}
 	return l
 }
-
 func (l *List) printList() string {
 	var buffer bytes.Buffer
 	for current := l.head; current != nil; current = current.next {
@@ -83,6 +80,7 @@ func removeDups(l *List) {
 	}
 }
 
+//List builder function
 func buildListWithDups() *List {
 	l := new(List)
 	l.insertFront(11)
@@ -96,6 +94,7 @@ func buildListWithDups() *List {
 	return l
 }
 
+//#DRIVER
 func main() {
 	l1 := buildListWithDups()
 	fmt.Printf("BEFORE    : %v\n", l1.printList())
