@@ -61,3 +61,21 @@ func kthToLast(l *List, k int) int {
 	}
 	return ptr1.data
 }
+
+//List builder function
+func buildList() *List {
+	l := new(List)
+	l.insertFront(11)
+	l.insertFront(22)
+	l.insertFront(33)
+	l.insertFront(44)
+	l.insertFront(55)
+	l.insertFront(66)
+	l.insertFront(77)
+	return l
+}
+
+//#DRIVER
+func main() {
+	fmt.Println(kthToLast(l, 5))
+}
