@@ -37,6 +37,7 @@ func (l *List) sizeDecrement() {
 	l.size--
 }
 
+//Logic function
 func kthToLast(l *List, k int) int {
 	if l.peakFront() == nil {
 		return 0
