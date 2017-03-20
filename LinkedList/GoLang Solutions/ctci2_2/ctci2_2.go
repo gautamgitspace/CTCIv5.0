@@ -37,6 +37,26 @@ func (l *List) sizeDecrement() {
 	l.size--
 }
 
-func main() {
-	fmt.Println("test")
+func kthToLast(l *List, k int) int {
+	if l.peakFront() == nil {
+		return 0
+	}
+	if k > l.sizeOfList() {
+		return 1
+	}
+	var ptr1 *Node
+	var ptr2 *Node
+	ptr1 = l.peakFront()
+	ptr2 = l.peakFront()
+	for i := 0; i < k; i++ {
+		ptr2 = ptr2.next
+	}
+	if ptr2 == nil {
+		fmt.Println("Reached END")
+	}
+	for ptr2 != nil {
+		ptr1 = ptr1.next
+		ptr2 = ptr2.next
+	}
+	return ptr1.data
 }
