@@ -77,5 +77,13 @@ func buildList() *List {
 
 //#DRIVER
 func main() {
-	fmt.Println(kthToLast(l, 5))
+	l := buildList()
+	var result = kthToLast(l, 8)
+	if result == 0 {
+		fmt.Println("EMPTY LIST")
+	} else if result == 1 {
+		fmt.Println("You gotta be kidding me! Check list size.")
+	} else {
+		fmt.Println("ELEMENT is: ", result)
+	}
 }
