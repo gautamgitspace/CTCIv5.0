@@ -1,5 +1,10 @@
 package main
 
+import (
+	"bytes"
+	"fmt"
+)
+
 type Node struct {
 	next *Node
 	data int
@@ -31,4 +36,13 @@ func (l *List) sizeOfList() int {
 }
 func (l *List) sizeDecrement() {
 	l.size--
+}
+func (l *List) printList() string {
+	var buffer bytes.Buffer
+	for current := l.head; current != nil; current = current.next {
+		buffer.WriteString(fmt.Sprintf("%v", current.data))
+		buffer.WriteString(" -> ")
+	}
+	buffer.WriteString("nil")
+	return buffer.String()
 }
