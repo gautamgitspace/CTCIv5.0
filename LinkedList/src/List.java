@@ -428,7 +428,7 @@ public class List
             System.out.println("4. delete at position");
             System.out.println("5. delete by value");
             System.out.println("6. check empty");
-            System.out.println("7. get size");  
+            System.out.println("7. get size");
             System.out.println("8. Search List");
             System.out.println("9. Print middle value");
             System.out.println("10. Count occurrence of an element");
