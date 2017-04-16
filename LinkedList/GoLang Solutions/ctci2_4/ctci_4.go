@@ -54,6 +54,33 @@ func (l *List) printList() string {
 	return buffer.String()
 }
 
+func partitionList(l *List, val int) {
+	upper := new(List)
+	lower := new(List)
+	var current *Node
+
+	for current = l.peakFront(); current != nil; {
+		if current.data < val {
+			lower.insertFront(current.data)
+			fmt.Println("INSERTED BEFORE: ", current.data)
+		} else {
+			upper.insertFront(current.data)
+			fmt.Println("INSERTED AFTER: ", current.data)
+		}
+		current = current.next
+	}
+	current = lower.head
+	var lowNode *Node
+	lowNode = lower.head
+
+	for lowNode.next != nil {
+		lowNode = lowNode.next
+	}
+	lowNode.next = upper.head
+
+	fmt.Println("LIST AFTER PIVOT SORT:", lower.printList())
+}
+
 func main() {
 	l := new(List)
 	l.insertFront(11)
@@ -62,4 +89,6 @@ func main() {
 	l.insertFront(3)
 	l.insertFront(9)
 	fmt.Printf("LIST: %v\n", l.printList())
+	partitionList(l, 7)
+
 }
