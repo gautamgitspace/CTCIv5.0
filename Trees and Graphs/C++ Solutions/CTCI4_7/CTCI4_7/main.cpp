@@ -64,24 +64,35 @@ void insert(Node* &head, int value)
 
 Node* lca(Node* root, Node* n1, Node* n2)
 {
-    
+    /* base case */
     if(root == NULL)
     {
         return NULL;
     }
     
+    /* if either of the nodes matches the root */
     if(root == n1 || root == n2)
     {
         return root;
     }
     
+    /* if none of the above search for left 
+     * and right sub-trees */
     Node* left = lca(root->left, n1, n2);
     Node* right = lca(root->right, n1, n2);
     
+    /* if both of them are non-NULL 
+     * this means that one of them 
+     * lies in the left sub-tree and
+     * the other one lies in the right
+     * Which means this root is the LCA
+     * Hence return it */
     if(left != NULL && right != NULL)
     {
         return root;
     }
+    /* if one of them is non-NULL 
+    * return that one */
     return left != NULL ? left : right;
 }
 
