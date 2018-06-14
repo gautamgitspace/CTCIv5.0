@@ -69,7 +69,7 @@ bool isBst(Node* root, int lowerBound, int upperBound)
     }
     if(root->data <= upperBound && root->data >= lowerBound)
     {
-        return (isBst(root->left, lowerBound, root->data) && isBst(root->right, root->data+1,upperBound));
+        return (isBst(root->left, lowerBound, root->data-1) && isBst(root->right, root->data+1,upperBound));
     }
     else
         return false;
