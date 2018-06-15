@@ -65,10 +65,17 @@ bool isBst(Node* root, int lowerBound, int upperBound)
 {
     if(root==NULL)
     {
+        /* empty tree is bst */
         return true;
+    }
+    if (root->data >= upperBound && root->data <= lowerBound) 
+    {
+        /* sanity case */
+        return false;
     }
     if(root->data <= upperBound && root->data >= lowerBound)
     {
+        /* regular case */
         return (isBst(root->left, lowerBound, root->data-1) && isBst(root->right, root->data+1,upperBound));
     }
     else
